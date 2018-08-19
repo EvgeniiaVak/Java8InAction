@@ -1,14 +1,22 @@
 package lambdasinaction.chap5;
-import lambdasinaction.chap4.*;
+import lambdasinaction.chap4.Dish;
 
-import java.util.stream.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 import static lambdasinaction.chap4.Dish.menu;
 
 public class Reducing{
 
     public static void main(String...args){
+
+        //number of dishes
+        Optional<Integer> mySum = menu.stream()
+                .map(dish -> 1)
+                .reduce(Integer::sum);
+        System.out.println(mySum.orElse(0));
+        System.out.println("\n\n");
 
         List<Integer> numbers = Arrays.asList(3,4,5,1,2);
         int sum = numbers.stream().reduce(0, (a, b) -> a + b);

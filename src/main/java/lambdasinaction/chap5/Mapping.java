@@ -17,9 +17,10 @@ public class Mapping{
         // For example, given a list [1, 2, 3] and a list [3, 4] you should return
         // [(1, 3), (1, 4), (2, 3), (2, 4), (3, 3), (3, 4)].
         // For simplicity, you can represent a pair as an array with two elements.
-        Stream.of(1, 2, 3)
+        Stream.of(1, 2, 3, 4, 5, 6, 7)
                 .flatMap(i->
-                        Stream.of(3, 4)
+                        Stream.of(3, 4, 8, 9)
+                                .filter(j-> (j + i) % 3 == 0)
                                 .map(j-> Arrays.asList(i, j)))
                 .forEach(System.out::print);
         System.out.println("\n----------------\n\n");

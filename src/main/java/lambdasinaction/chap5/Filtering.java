@@ -1,15 +1,22 @@
 package lambdasinaction.chap5;
-import lambdasinaction.chap4.*;
+import lambdasinaction.chap4.Dish;
 
-import java.util.stream.*;
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+
 import static java.util.stream.Collectors.toList;
-
 import static lambdasinaction.chap4.Dish.menu;
 
 public class Filtering{
 
     public static void main(String...args){
+
+        System.out.println("Filtering with both limit and skip");
+        menu.parallelStream().
+                skip(10).
+                limit(2).
+                forEach(System.out::println);
+        System.out.println("----------------------------------");
 
         // Filtering with predicate
         List<Dish> vegetarianMenu =
